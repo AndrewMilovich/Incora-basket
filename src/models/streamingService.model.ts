@@ -21,17 +21,17 @@ export class StreamingService {
 
     getMostViewedShowsOfYear(year: number): Show[] {
         const res = this.shows.filter(value => value.releaseDate.getFullYear() === year && this.viewsByShowNames.has(value.name))
-        return this._filterMostViewedGtTen(res)
+        return this._filterMostViewedGen(res)
 
 
     }
 
-    getMostViewedShowsOfGenre(genre: IGenre): Show[] {
+    getMostViewedShowsByGenre(genre: IGenre): Show[] {
         const res = this.shows.filter(value => value.genre.id === genre.id && this.viewsByShowNames.has(value.name))
-        return this._filterMostViewedGtTen(res)
+        return this._filterMostViewedGen(res)
     }
 
-    private _filterMostViewedGtTen(shows: Show[]): Show[] {
+    private _filterMostViewedGen(shows: Show[]): Show[] {
         const max = 10
 
         if (shows.length <= max) {

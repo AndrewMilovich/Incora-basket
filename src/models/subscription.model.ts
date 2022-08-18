@@ -23,7 +23,7 @@ export class Subscription {
     }
 
     getRecommendationByGenre(genre: IGenre): Show {
-        const shows = this.streamingService.getMostViewedShowsOfGenre(genre);
+        const shows = this.streamingService.getMostViewedShowsByGenre(genre);
         return this._getRandomShow(shows)
     }
 
